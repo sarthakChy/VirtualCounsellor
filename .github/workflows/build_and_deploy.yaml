@@ -1,0 +1,60 @@
+name: Build and Deploy to Cloud Run
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: prod
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Determine Environment
+      id: determine-env
+      run: |
+        echo "MY_PROJECT_ENV=prod" >> $GITHUB_ENV
+
+    - name: Authenticate with Google Cloud
+      uses: google-github-actions/auth@v1
+      with:
+        credentials_json: ${{ secrets.GCP_DEPLOY_SA }}
+
+    - name: Set up Google Cloud SDK
+      uses: google-github-actions/setup-gcloud@v1
+      with:
+        project_id: ${{ secrets.GCP_PROJECT_ID }}
+
+    - name: Configure Docker to use gcloud
+      run: |
+        gcloud auth configure-docker ${{ secrets.GCP_LOCATION }}-docker.pkg.dev
+
+    - name: Build and Push Docker image
+      run: |
+        IMAGE_URI="${{ secrets.GCP_LOCATION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/my-images/my-project-${{ env.MY_PROJECT_ENV }}:latest"
+        echo "IMAGE_URI=$IMAGE_URI" >> $GITHUB_ENV
+        docker build -t "$IMAGE_URI" .
+        docker push "$IMAGE_URI"
+
+    - name: Deploy to Cloud Run
+      run: |
+        gcloud run deploy my-service-${{ env.MY_PROJECT_ENV }} \
+          --image "${{ env.IMAGE_URI }}" \
+          --platform managed \
+          --region ${{ secrets.GCP_LOCATION }} \
+          --port 8080 \
+          --memory 4Gi \
+          --cpu 1 \
+          --project ${{ secrets.GCP_PROJECT_ID }} \
+          --service-account ${{ secrets.GCP_PROJECT_SA_NAME }} \
+          --set-env-vars MY_ENV=${{ env.MY_PROJECT_ENV }} \
+          --set-env-vars GOOGLE_API_KEY=${{ secrets.GOOGLE_API_KEY }} \
+          --set-env-vars LANGCHAIN_API_KEY=${{ secrets.LANGCHAIN_API_KEY }} \
+          --set-env-vars LANGCHAIN_ENDPOINT=${{ secrets.LANGCHAIN_ENDPOINT }} \
+          --set-env-vars LANGCHAIN_PROJECT=${{ secrets.LANGCHAIN_PROJECT }} \
+          --set-env-vars LANGCHAIN_TRACING_V2=${{ secrets.LANGCHAIN_TRACING_V2 }} \
+          --allow-unauthenticated

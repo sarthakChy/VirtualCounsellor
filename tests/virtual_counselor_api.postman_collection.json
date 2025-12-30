@@ -1,0 +1,251 @@
+{
+  "info": {
+    "name": "Virtual Counselor API",
+    "description": "AI-powered career counseling system with multiple specialized verticals",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000/api",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health & Info",
+      "item": [
+        {
+          "name": "Root",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/",
+              "host": ["{{base_url}}"],
+              "path": [""]
+            }
+          }
+        },
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/health",
+              "host": ["{{base_url}}"],
+              "path": ["health"]
+            }
+          }
+        },
+        {
+          "name": "Get Verticals Info",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/verticals",
+              "host": ["{{base_url}}"],
+              "path": ["verticals"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "School Students",
+      "item": [
+        {
+          "name": "9th Grade Academic Student",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"demographic_info\": {\n        \"name\": \"Priya Sharma\",\n        \"age\": 14,\n        \"current_grade\": 9,\n        \"gender\": \"female\",\n        \"school_name\": \"Delhi Public School\",\n        \"location\": \"Delhi, India\"\n    },\n    \"dbda_scores\": {\n        \"CA\": \"12/20\",\n        \"CL\": \"44/72\",\n        \"MA\": \"7/25\",\n        \"NA\": \"7/20\",\n        \"PM\": \"\",\n        \"RA\": \"8/12\",\n        \"SA\": \"58/72\",\n        \"VA\": \"17/24\"\n    },\n    \"cii_results\": {\n        \"artistic\": 4,\n        \"scientific\": 9,\n        \"social\": 6,\n        \"conventional\": 5,\n        \"enterprising\": 4,\n        \"realistic\": 3\n    },\n    \"academic_status\": {\n        \"GPA\": 9.2,\n        \"current_year\": 9,\n        \"major_subjects\": [\n            \"Mathematics\",\n            \"Science\",\n            \"English\",\n            \"Social Studies\"\n        ],\n        \"extracurriculars\": [\n            \"Science Club\",\n            \"Math Olympiad\",\n            \"Debate Society\"\n        ],\n        \"expected_graduation\": \"2027\"\n    },\n    \"financial_constraints\": {\n        \"max_annual_tuition\": 500000,\n        \"requires_scholarship\": false,\n        \"family_income_range\": \"8-12 LPA\"\n    },\n    \"initial_message\": \"I am really passionate about science and mathematics. I want to pursue a career in research or medicine. Can you guide me on what subjects to focus on and what career paths would be best for me?\",\n    \"user_id\": \"student_priya_001\",\n    \"session_id\": \"session_academic_9th\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/school-students",
+              "host": ["{{base_url}}"],
+              "path": ["school-students"]
+            }
+          }
+        },
+        {
+          "name": "11th Grade Arts Student",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"demographic_info\": {\n        \"name\": \"Arjun Mehta\",\n        \"age\": 16,\n        \"current_grade\": 11,\n        \"gender\": \"male\",\n        \"school_name\": \"Kendriya Vidyalaya\",\n        \"location\": \"Mumbai, Maharashtra\"\n    },\n    \"dbda_scores\": {\n        \"CA\": \"12/20\",\n        \"CL\": \"44/72\",\n        \"MA\": \"7/25\",\n        \"NA\": \"7/20\",\n        \"PM\": \"\",\n        \"RA\": \"8/12\",\n        \"SA\": \"58/72\",\n        \"VA\": \"17/24\"\n    },\n    \"cii_results\": {\n        \"artistic\": 9,\n        \"scientific\": 3,\n        \"social\": 7,\n        \"conventional\": 4,\n        \"enterprising\": 6,\n        \"realistic\": 4\n    },\n    \"academic_status\": {\n        \"GPA\": 8.4,\n        \"current_year\": 11,\n        \"major_subjects\": [\n            \"English Literature\",\n            \"Fine Arts\",\n            \"Psychology\",\n            \"History\"\n        ],\n        \"extracurriculars\": [\n            \"Drama Club\",\n            \"Art Society\",\n            \"Creative Writing\",\n            \"Photography Club\"\n        ],\n        \"expected_graduation\": \"2025\"\n    },\n    \"financial_constraints\": {\n        \"max_annual_tuition\": 300000,\n        \"requires_scholarship\": true,\n        \"family_income_range\": \"4-6 LPA\"\n    },\n    \"initial_message\": \"I love arts, theater, and creative writing. I want to pursue a career in the creative field but my parents are worried about job security. Can you help me understand different career options in arts and creative fields?\",\n    \"user_id\": \"student_arjun_002\",\n    \"session_id\": \"session_arts_11th\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/school-students",
+              "host": ["{{base_url}}"],
+              "path": ["school-students"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "College Upskilling",
+      "item": [
+        {
+          "name": "B.Tech AI/ML Student",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "resume",
+                  "type": "file",
+                  "src": "btech_resume.txt"
+                },
+                {
+                  "key": "academic_status",
+                  "value": "{\"GPA\": 8.7, \"current_year\": 4, \"major_subjects\": [\"Machine Learning\", \"Deep Learning\", \"Data Structures\", \"Algorithms\", \"Computer Vision\", \"Natural Language Processing\"], \"extracurriculars\": [\"AI/ML Club\", \"Coding Club\", \"Research Group\"], \"expected_graduation\": \"2025\"}",
+                  "type": "text"
+                },
+                {
+                  "key": "github_profile",
+                  "value": "{\"username\": \"rohitkumar\", \"repos\": 24, \"contributions\": 850, \"languages\": [\"Python\", \"JavaScript\", \"Java\", \"C++\"], \"stars_received\": 67}",
+                  "type": "text"
+                },
+                {
+                  "key": "linkedin_profile",
+                  "value": "{\"connections\": 450, \"posts\": 25, \"recommendations\": 8, \"profile_completeness\": 95}",
+                  "type": "text"
+                },
+                {
+                  "key": "initial_message",
+                  "value": "I am a final year B.Tech student specializing in AI/ML. I want to transition into a data scientist role at top tech companies. Can you help me identify skill gaps and provide a learning roadmap?",
+                  "type": "text"
+                },
+                {
+                  "key": "user_id",
+                  "value": "college_rohit_001",
+                  "type": "text"
+                },
+                {
+                  "key": "session_id",
+                  "value": "session_btech_aiml",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/college-upskilling",
+              "host": ["{{base_url}}"],
+              "path": ["college-upskilling"]
+            }
+          }
+        },
+        {
+          "name": "Psychology Student",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "resume",
+                  "type": "file",
+                  "src": "psychology_resume.txt"
+                },
+                {
+                  "key": "academic_status",
+                  "value": "{\"GPA\": 8.9, \"current_year\": 3, \"major_subjects\": [\"Cognitive Psychology\", \"Social Psychology\", \"Research Methods\", \"Statistical Methods\", \"Abnormal Psychology\", \"Counseling Psychology\"], \"extracurriculars\": [\"Psychology Society\", \"Mental Health Club\", \"Research Group\", \"Volunteer Work\"], \"expected_graduation\": \"2025\"}",
+                  "type": "text"
+                },
+                {
+                  "key": "github_profile",
+                  "value": "null",
+                  "type": "text"
+                },
+                {
+                  "key": "linkedin_profile",
+                  "value": "{\"connections\": 280, \"posts\": 15, \"recommendations\": 6, \"profile_completeness\": 85}",
+                  "type": "text"
+                },
+                {
+                  "key": "initial_message",
+                  "value": "I am pursuing BA Psychology and want to build a career in clinical psychology or UX research. I am confused about which path to choose and what additional skills I need to develop. Can you guide me?",
+                  "type": "text"
+                },
+                {
+                  "key": "user_id",
+                  "value": "college_ananya_002",
+                  "type": "text"
+                },
+                {
+                  "key": "session_id",
+                  "value": "session_psychology",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/college-upskilling",
+              "host": ["{{base_url}}"],
+              "path": ["college-upskilling"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Status & Chat",
+      "item": [
+        {
+          "name": "Check Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/status/{{session_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["status", "{{session_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Chat with Counselor",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"session_id\": \"{{session_id}}\",\n    \"message\": \"Can you provide more specific information about entrance exams I should prepare for?\",\n    \"user_id\": \"student_001\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/chat",
+              "host": ["{{base_url}}"],
+              "path": ["chat"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

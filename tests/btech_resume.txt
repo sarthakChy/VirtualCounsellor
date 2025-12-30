@@ -1,0 +1,57 @@
+ROHIT KUMAR
+B.Tech Computer Science Engineering (AI/ML)
+Email: rohit.kumar@email.com | Phone: +91-9876543210
+LinkedIn: linkedin.com/in/rohitkumar | GitHub: github.com/rohitkumar
+
+EDUCATION
+Bachelor of Technology in Computer Science Engineering (AI/ML)
+Indian Institute of Technology (IIT) Delhi
+CGPA: 8.7/10 (2021-2025)
+
+TECHNICAL SKILLS
+Programming Languages: Python, Java, C++, JavaScript, R
+Machine Learning: TensorFlow, PyTorch, Scikit-learn, Keras
+Data Science: Pandas, NumPy, Matplotlib, Seaborn
+Web Development: React, Node.js, Django, Flask
+Databases: MySQL, MongoDB, PostgreSQL
+Cloud Platforms: AWS, Google Cloud Platform
+Tools: Git, Docker, Kubernetes, Jupyter Notebook
+
+PROJECTS
+1. Sentiment Analysis for Social Media Posts
+   - Developed a deep learning model using LSTM and BERT for sentiment classification
+   - Achieved 94% accuracy on Twitter dataset using Python and TensorFlow
+   - Technologies: Python, TensorFlow, NLTK, Flask
+
+2. E-commerce Recommendation System
+   - Built collaborative filtering recommendation engine for online shopping platform
+   - Implemented both user-based and item-based filtering algorithms
+   - Technologies: Python, Pandas, Scikit-learn, MySQL
+
+3. Computer Vision for Medical Diagnosis
+   - Created CNN model for detecting skin cancer from dermatological images
+   - Preprocessed dataset of 10,000+ medical images and achieved 89% accuracy
+   - Technologies: Python, PyTorch, OpenCV, PIL
+
+EXPERIENCE
+Machine Learning Intern | TechCorp Solutions | June 2023 - August 2023
+- Worked on natural language processing project for customer feedback analysis
+- Improved model accuracy by 15% through feature engineering and hyperparameter tuning
+- Collaborated with senior data scientists on production deployment
+
+ACHIEVEMENTS
+- Winner of Inter-IIT Tech Meet 2023 - AI/ML Category
+- Published research paper on "Deep Learning Applications in Healthcare" in IEEE conference
+- Google Summer of Code 2023 participant
+- Coursera Machine Learning Specialization Certificate (Andrew Ng)
+
+CERTIFICATIONS
+- AWS Certified Machine Learning Specialty
+- Google Cloud Professional Data Engineer
+- Deep Learning Specialization - Coursera
+- Data Science Professional Certificate - IBM
+
+INTERESTS
+- Research in Computer Vision and Natural Language Processing
+- Open Source Contributions
+- Tech Blogging and Knowledge Sharing
